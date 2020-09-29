@@ -4,10 +4,17 @@ Rails.application.routes.draw do
   	registrations: 'admin/admins/registrations',
   }
 
+
   devise_for :users, controllers: {
     sessions: 'public/users/sessions',
     registrations: 'public/users/registrations',
   }
+
+  scope module: :public do
+    root 'home#top'
+    get 'home/about' => 'home#about'
+  end
+
 
 
 end
