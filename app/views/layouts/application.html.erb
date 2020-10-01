@@ -10,6 +10,20 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <header>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        <%= link_to 'ログイン', new_user_session_path %>
+        <%= link_to '新規登録', new_user_registration_path %>
+      </header>
+        <main>
+          <%= yield %>
+        </main>
+
+        <footer>
+          Copyright © Infratop Inc. All Rights Reserved.
+        </footer>
+    </div>
+
   </body>
 </html>
