@@ -7,16 +7,30 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/24ba2831f8.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <div class="wrapper">
-      <header>
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        <%= link_to 'ログイン', new_user_session_path %>
-        <%= link_to '新規登録', new_user_registration_path %>
-        <%= link_to 'レシピ一覧', recipes_path %>
-      </header>
+
+      <% if admin_signed_in? %>
+        <header>
+          <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "btn btn-default"  %>
+          <%= link_to 'レシピ一覧', recipes_path, class: "btn btn-default", class: "btn btn-default"  %>
+        </header>
+      <% elsif user_signed_in? %>
+        <header>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-default"  %>
+          <%= link_to 'レシピ一覧', recipes_path, class: "btn btn-default"  %>
+        </header>
+      <% else %>
+        <header>
+          <%= link_to 'ログイン', new_user_session_path, class: "btn btn-default" %>
+          <%= link_to '新規登録', new_user_registration_path, class: "btn btn-default"  %>
+          <%= link_to 'レシピ一覧', recipes_path, class: "btn btn-default"  %>
+        </header>
+      <% end%>
+
         <main>
           <%= yield %>
         </main>
