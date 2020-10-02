@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1>レシピ詳細</h1>
+			<h1>管理者レシピ詳細</h1>
 			<%= attachment_image_tag @recipe, :image, style: "width: 192px; height: 108px;", fallback: "noimage.jpg" %><br>
 			<%= @recipe.title %>
 			<%= simple_format @recipe.ingredient %>

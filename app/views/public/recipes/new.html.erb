@@ -1,2 +1,30 @@
-<h1>Public::Recipes#new</h1>
-<p>Find me in app/views/public/recipes/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>レシピ投稿</h1>
+      <%= form_for @recipe do |f| %>
+        <div class="field">
+          <%= f.label :title, "レシピ名"%>
+          <%= f.text_field :title, class: "input" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :ingredient, "材料" %>
+          <%= f.text_area :ingredient, class: "textarea" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :body, "作り方" %>
+          <%= f.text_area :body, class: "textarea" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :image, "写真" %>
+          <%= f.attachment_field :image, class: "input" %>
+        </div>
+
+        <%= f.submit '投稿', class: "button is-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
