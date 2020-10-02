@@ -24,9 +24,11 @@
 					</tr>
 				</thead>
 				<tbody>
+				 <% @user.recipes.each do |recipe| %>
 					<tr>
-						<td>data</td>
+						<td><%= recipe.title %></td>
 					</tr>
+				<%end%>
 				</tbody>
 			</table>
 		</div>
