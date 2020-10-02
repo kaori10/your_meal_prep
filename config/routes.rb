@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     root 'home#top'
     get 'home/about' => 'home#about'
     resources :users, only: [:show, :edit, :update]
+    resources :recipes
   end
 
 
