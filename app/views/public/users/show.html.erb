@@ -2,7 +2,8 @@
 	<div class="row">
 		<div class="col-lg-4">
 			<h1>登録情報</h1>
-			<p>※プロフィール画像をたす</p>
+			<%= attachment_image_tag @user, :profile_image, style: "width: 192px; height: 108px;", fallback: "noimage.jpg" %>
+			<br>
 			<%= @user.first_name %>
 			<%= @user.last_name %>
 			<%= @user.first_name_kana %>
