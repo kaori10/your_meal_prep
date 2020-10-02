@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   	sessions: 'admin/admins/sessions',
   	registrations: 'admin/admins/registrations',
   }
+  namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update]
+  end
 
   devise_for :users, controllers: {
     sessions: 'public/users/sessions',

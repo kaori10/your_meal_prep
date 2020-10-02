@@ -2,8 +2,7 @@
 	<div class="row">
 		<div class="col-lg-4">
 			<h1>登録情報</h1>
-			<%= attachment_image_tag @user, :profile_image, style: "width: 192px; height: 108px;", fallback: "noimage.jpg" %>
-			<br>
+			<p>※プロフィール画像をたす</p>
 			<%= @user.first_name %>
 			<%= @user.last_name %>
 			<%= @user.first_name_kana %>
@@ -13,7 +12,7 @@
 			<%= @user.address%>
 			<%= @user.email %>
 			<%= @user.telephone_number %>
-			<%= link_to '編集', edit_user_path %>
+			<%= link_to '編集', edit_admin_user_path %>
 		</div>
 		<div class="col-lg-5">
 			<table class="table">
