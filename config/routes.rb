@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     root 'home#top'
     get 'home/about' => 'home#about'
     resources :users, only: [:show, :edit, :update]
+    get 'users/favorite/:id' => 'users#favorite'
     resources :recipes do
       resource :favorites, only: [:create, :destroy]
     end
