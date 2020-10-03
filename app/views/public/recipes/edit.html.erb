@@ -11,6 +11,12 @@
 				<%= f.text_area :body %>
 				<%= f.label :image %>
 				<%= f.attachment_field :image %>
+<!-- 	            <%= f.label :genres %>
+		             <div class="checkbox">
+		                <%= collection_check_boxes(:recipe, :genre_ids, Genre.all, :id, :name, include_hidden: false) do |g| %>
+		                <%= g.label {g.check_box + g.text} %>
+		                <% end %>
+		            </div> -->
 				<%= f.submit %>
 			<% end %>
 		</div>

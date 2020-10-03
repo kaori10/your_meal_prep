@@ -14,8 +14,21 @@ class Public::RecipesController < ApplicationController
 
   def update
   	@recipe = Recipe.find(params[:id])
-  	@recipe.update(recipe_params)
-  	redirect_to recipe_path(@recipe)
+    @recipe.update
+    redirect_to receipe_path(@recipe)
+      # if @recipe.update(recipe_params)
+      #    recipe_params[:genre_ids].each do | recipeg |
+      #       genres = @recipe.genres.pluck(:genre_id)
+      #       unless genres.include?(recipe.to_i)
+      #         genre = RecipeGenre.new(genre_id: recipeg)
+      #         genre.recipe_id = @recipe.id
+      #         genre.save
+      #       end
+      #     end
+      #       redirect_to admin_recipes_path
+      # else
+      #    render 'edit'
+      # end
   end
 
   def new
@@ -31,7 +44,7 @@ class Public::RecipesController < ApplicationController
 
   private
   def recipe_params
-  	params.require(:recipe).permit(:title, :ingredient, :body, :image)
+  	params.require(:recipe).permit(:title, :ingredient, :body, :image, genre_ids: [])
   end
 
 end

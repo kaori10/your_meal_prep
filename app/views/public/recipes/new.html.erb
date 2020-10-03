@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12">
       <h1>レシピ投稿</h1>
-      <%= form_for @recipe do |f| %>
+      <%= form_with model: @recipe do |f| %>
         <div class="field">
           <%= f.label :title, "レシピ名"%>
           <%= f.text_field :title, class: "input" %>
@@ -22,6 +22,17 @@
           <%= f.label :image, "写真" %>
           <%= f.attachment_field :image, class: "input" %>
         </div>
+
+        <div class="field">
+        <%= f.label :genre, 'カテゴリ' %>
+        <%= f.collection_check_boxes(:genre_ids, genre.all, :id, :name) do |genre| %> 
+          <%= genre.label do %>
+            <%= genre.check_box %>
+            <%= genre.text %>
+          <% end %>
+        <% end %>
+        </div>
+
 
         <%= f.submit '投稿', class: "button is-success" %>
       <% end %>
