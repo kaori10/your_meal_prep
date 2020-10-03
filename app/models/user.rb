@@ -5,5 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   attachment :profile_image
   has_many :recipes, dependent: :destroy
-
+  has_many :favorites, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  
+  def already_favorited?(recipe)
+    self.favorites.exists?(recipe_id: recipe.id)
+  end
 end

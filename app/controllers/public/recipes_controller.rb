@@ -6,40 +6,38 @@ class Public::RecipesController < ApplicationController
 
   def show
   	@recipe = Recipe.find(params[:id])
+    @review = Review.new
   end
 
   def edit
   	@recipe = Recipe.find(params[:id])
+    @genres = Genre.all
   end
 
   def update
   	@recipe = Recipe.find(params[:id])
-    @recipe.update
-    redirect_to receipe_path(@recipe)
-      # if @recipe.update(recipe_params)
-      #    recipe_params[:genre_ids].each do | recipeg |
-      #       genres = @recipe.genres.pluck(:genre_id)
-      #       unless genres.include?(recipe.to_i)
-      #         genre = RecipeGenre.new(genre_id: recipeg)
-      #         genre.recipe_id = @recipe.id
-      #         genre.save
-      #       end
-      #     end
-      #       redirect_to admin_recipes_path
-      # else
-      #    render 'edit'
-      # end
+    @genres = Genre.all
+    if @recipe.update(recipe_params)
+      redirect_to recipe_path(@recipe)
+    else
+      render "edit"
+    end
   end
 
   def new
   	@recipe = Recipe.new
+    @genres = Genre.all
   end
 
   def create
   	@recipe = Recipe.new(recipe_params)
   	@recipe.user_id = current_user.id
-  	@recipe.save
-  	redirect_to recipe_path(@recipe)
+    @genres = Genre.all
+  	if @recipe.save
+    	redirect_to recipes_path
+    else
+      render "new"
+    end
   end
 
   private
