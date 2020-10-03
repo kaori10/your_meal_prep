@@ -11,28 +11,38 @@ class Public::RecipesController < ApplicationController
 
   def edit
   	@recipe = Recipe.find(params[:id])
+    @genres = Genre.all
   end
 
   def update
   	@recipe = Recipe.find(params[:id])
-  	@recipe.update(recipe_params)
-  	redirect_to recipe_path(@recipe)
+    @genres = Genre.all
+    if @recipe.update(recipe_params)
+      redirect_to recipe_path(@recipe)
+    else
+      render "edit"
+    end
   end
 
   def new
   	@recipe = Recipe.new
+    @genres = Genre.all
   end
 
   def create
   	@recipe = Recipe.new(recipe_params)
   	@recipe.user_id = current_user.id
-  	@recipe.save
-  	redirect_to recipe_path(@recipe)
+    @genres = Genre.all
+  	if @recipe.save
+    	redirect_to recipes_path
+    else
+      render "new"
+    end
   end
 
   private
   def recipe_params
-  	params.require(:recipe).permit(:title, :ingredient, :body, :image)
+  	params.require(:recipe).permit(:title, :ingredient, :body, :image, genre_ids: [])
   end
 
 end

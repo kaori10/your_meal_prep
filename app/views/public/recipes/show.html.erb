@@ -11,6 +11,7 @@
 			<%= simple_format @recipe.body %>
 			<%= @recipe.user.nickname %>
 
+
             <% if current_user.already_favorited?(@recipe) %>
               <%= link_to recipe_favorites_path(@recipe), method: :delete do %>
                 <i class="fas fa-heart"></i>
@@ -22,6 +23,11 @@
               <% end %>
               <%= @recipe.favorites.count %>
             <% end %>
+
+			<span>【ジャンル】</span>
+			<% @recipe.genres.each do |genre| %>
+			  <%= genre.name %>
+			<% end %>
 
 			<% if @recipe.user.id == current_user.id %>
 			<%= link_to "編集", edit_recipe_path(@recipe) %>
