@@ -8,6 +8,19 @@
 			<!-- simple_formatで改行を入れる -->
 			<%= simple_format @recipe.body %>
 			<%= @recipe.user.nickname %>
+			
+            <% if current_user.already_favorited?(@recipe) %>
+              <%= link_to recipe_favorites_path(@recipe), method: :delete do %>
+                <i class="fas fa-heart"></i>
+              <% end %>
+              <%= @recipe.favorites.count %>
+            <% else %>
+              <%= link_to recipe_favorites_path(@recipe), method: :post do %>
+                <i class="far fa-heart"></i>
+              <% end %>
+              <%= @recipe.favorites.count %>
+            <% end %>
+
 			<% if @recipe.user.id == current_user.id %>
 			<%= link_to "編集", edit_recipe_path(@recipe) %>
 			<% end %>
