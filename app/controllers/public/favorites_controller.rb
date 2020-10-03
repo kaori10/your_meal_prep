@@ -1,4 +1,5 @@
 class Public::FavoritesController < ApplicationController
+
   def create
     @favorite = current_user.favorites.create(recipe_id: params[:recipe_id])
     redirect_back(fallback_location: root_path)
@@ -9,5 +10,10 @@ class Public::FavoritesController < ApplicationController
     @favorite = current_user.favorites.find_by(recipe_id: @recipe.id)
     @favorite.destroy
     redirect_back(fallback_location: root_path)
+  end
+
+  private
+  def set_recipe
+    @recipe = Recipe.find(params[:recipe_id])
   end
 end
