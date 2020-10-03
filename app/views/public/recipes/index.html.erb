@@ -3,9 +3,21 @@
 		<div class="col-lg-12">
 			<h1>レシピ一覧</h1>
 			<% @recipes.each do |recipe| %>
-			<%= attachment_image_tag recipe, :image, style: "width: 192px; height: 108px;" %>
-			<%= recipe.user.nickname %>
-			<%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %>
+  			<%= attachment_image_tag recipe, :image, style: "width: 192px; height: 108px;" %>
+  			<%= recipe.user.nickname %>
+  			<%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %>
+        <% if current_user.already_favorited?(recipe) %>
+          <%= link_to recipe_favorites_path(recipe), method: :delete do %>
+            <i class="fas fa-heart"></i>
+          <% end %>
+          <%= recipe.favorites.count %>
+        <% else %>
+          <%= link_to recipe_favorites_path(recipe), method: :post do %>
+            <i class="far fa-heart"></i>
+          <% end %>
+          <%= recipe.favorites.count %>
+        <% end %>
+
 			<% end %>
 		</div>
 	</div>
