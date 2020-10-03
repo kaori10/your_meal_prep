@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get 'users/favorite/:id' => 'users#favorite'
     resources :recipes do
       resource :favorites, only: [:create, :destroy]
+      resources :reviews, only: [:index, :create]
     end
 
   end
