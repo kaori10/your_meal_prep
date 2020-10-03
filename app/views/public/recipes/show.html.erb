@@ -1,14 +1,16 @@
 <div class="container">
 	<div class="row">
-		<div class="col-lg-12">
-			<h1>レシピ詳細</h1>
-			<%= attachment_image_tag @recipe, :image, style: "width: 192px; height: 108px;", fallback: "noimage.jpg" %><br>
+		<h1>レシピ詳細</h1>
+		<div class="col-lg-4">
+			<%= attachment_image_tag @recipe, :image, style: "width: 192px; height: 108px;", fallback: "noimage.jpg" %>
+		</div>
+		<div class="col-lg-8">
 			<%= @recipe.title %>
 			<%= simple_format @recipe.ingredient %>
 			<!-- simple_formatで改行を入れる -->
 			<%= simple_format @recipe.body %>
 			<%= @recipe.user.nickname %>
-			
+
             <% if current_user.already_favorited?(@recipe) %>
               <%= link_to recipe_favorites_path(@recipe), method: :delete do %>
                 <i class="fas fa-heart"></i>
@@ -24,7 +26,7 @@
 			<% if @recipe.user.id == current_user.id %>
 			<%= link_to "編集", edit_recipe_path(@recipe) %>
 			<% end %>
-
+			<%= render 'public/reviews/form', review: @review, recipe: @recipe %>
 		</div>
 	</div>
 </div>
