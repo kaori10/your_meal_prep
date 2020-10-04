@@ -1,2 +1,37 @@
-<h1>Public::Reviews#index</h1>
-<p>Find me in app/views/public/reviews/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="title"><i class="fas fa-star-and-crescent"></i> Review</div>
+		<div class="col-lg-4">
+			<%= attachment_image_tag @recipe, :image, style: "width: 192px; height: 108px;", fallback: "noimage.jpg" %>
+		</div>
+		<div class="col-lg-6">
+			<table class="table">
+	            <div class="card-content">
+	                <div class="content average-score">
+		                <div class="star-rating mb-2">
+		                  <div class="star-rating-front" style="width: <%= @recipe.review_score_percentage %>%">★★★★★</div>
+		                  <div class="star-rating-back">★★★★★</div>
+		                </div>
+		                <div class="average-score-display ml-3 pt-2">
+		                  <%= @recipe.avg_score %>点（<%= @recipe.reviews.count %>件のレビュー）
+		                </div>
+		             </div>
+	            </div>
+				<thead>
+					<tr>
+						<th>ユーザー</th><th>点数</th><th>内容</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @reviews.each do |review| %>
+					<tr>
+						<td><%= review.user.nickname %></td>
+						<td><%= review.score %></td>
+						<td><%= review.content %></td>
+					</tr>
+					<% end%>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12s">
-			<h1>マイページ編集</h1>
+			<div class="title"><%= @user.nickname %>さんの編集ページ</div>
 			<%= form_for(@user) do |f| %>
 			<table>
 				<thead>
@@ -30,6 +30,10 @@
 					<tr>
 						<td><%= f.label :nickname, "ニックネーム" %></td>
 						<td colspan="2"><%= f.text_field :nickname, :placeholder =>"#{@user.nickname}" %></td>
+					</tr>
+					<tr>
+						<td><%= f.label :profile, "プロフィール" %></td>
+						<td colspan="2"><%= f.text_area :profile, :placeholder =>"#{@user.profile}" %></td>
 					</tr>
 					<tr>
 						<td><%= f.label :email, "メールアドレス" %></td>

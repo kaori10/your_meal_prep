@@ -1,21 +1,62 @@
 <div class="container">
 	<div class="row">
+		<div class="title"><%= @user.nickname %>さんの詳細ページ</div>
 		<div class="col-lg-4">
-			<h1>登録情報</h1>
-			<%= attachment_image_tag @user, :profile_image, style: "width: 192px; height: 108px;", fallback: "noimage.jpg" %>
-			<br>
-			<%= @user.first_name %>
-			<%= @user.last_name %>
-			<%= @user.first_name_kana %>
-			<%= @user.last_name_kana %>
-			<%= @user.nickname %>
-			<%= @user.postal_code %>
-			<%= @user.address%>
-			<%= @user.email %>
-			<%= @user.telephone_number %>
-			<%= link_to '編集', edit_user_path %>
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h1>登録情報</h1>
+				</div>
+				<div class="panel-body" style="text-align: center; font-size: 18px;">
+					<%= attachment_image_tag @user, :profile_image, style: "width: 192px; height: 108px;", fallback: "noimage.jpg" %>
+					<br>
+					<table>
+						<tr>
+							<td>ニックネーム:</td>
+							<td><%= @user.nickname %></td>
+						</tr>
+						<tr>
+							<td>プロフィール:</td>
+							<td><%= @user.profile %></td>
+						</tr>
+						<tr>
+							<td>投稿数:</td>
+							<td><%= @user.nickname %></td>
+						</tr>
+					</table>
+
+		         　　<% if @user.id == current_user.id %>
+					<table>
+						<tr>
+							<td>名前：</td>
+							<td><%= @user.first_name %><%= @user.last_name %></td>
+						</tr>
+						<tr>
+							<td>カナ</td>
+							<td><%= @user.first_name_kana %><%= @user.last_name_kana %></td>
+						</tr>
+						<tr>
+							<td>郵便番号:</td>
+							<td><%= @user.postal_code %></td>
+						</tr>
+						<tr>
+							<td>住所:</td>
+							<td><%= @user.address%></td>
+						</tr>
+						<tr>
+							<td>メールアドレス:</td>
+							<td><%= @user.email %></td>
+						</tr>
+						<tr>
+							<td>電話番号:</td>
+							<td><%= @user.telephone_number %></td>
+						</tr>
+					</table>
+					<%= link_to '編集', edit_user_path %>
+					<% end %>
+				</div>
+			</div>
 		</div>
-		<div class="col-lg-5">
+		<div class="col-lg-8">
 			<table class="table">
 				<caption>投稿したレシピ</caption>
 				<thead>
