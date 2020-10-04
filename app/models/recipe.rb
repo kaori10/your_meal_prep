@@ -2,6 +2,8 @@ class Recipe < ApplicationRecord
 	belongs_to :user
 	has_many :favorites, dependent: :destroy
 	has_many :reviews, dependent: :destroy
+    has_many :recipe_genre_relations
+    has_many :genres, through: :recipe_genre_relations
 	attachment :image
 
 	def avg_score
@@ -18,4 +20,5 @@ class Recipe < ApplicationRecord
 			0.0
 		end
 	end
+
 end

@@ -20,12 +20,13 @@
 
         <% if admin_signed_in? %>
           <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "btn btn-default"  %>
-          <%= link_to 'レシピ一覧', recipes_path, class: "btn btn-default", class: "btn btn-default"  %>
+          <%= link_to 'レシピ一覧', admin_recipes_path, class: "btn btn-default", class: "btn btn-default"  %>
           <%= link_to 'ユーザー一覧', admin_users_path, class: "btn btn-default", class: "btn btn-default"  %>
-          <%= link_to 'ジャンル一覧', admin_users_path, class: "btn btn-default", class: "btn btn-default"  %>
+          <%= link_to 'ジャンル一覧', admin_genres_path, class: "btn btn-default", class: "btn btn-default"  %>
         <% elsif user_signed_in? %>
           <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-default"  %>
           <%= link_to 'レシピ一覧', recipes_path, class: "btn btn-default"  %>
+          <%= link_to 'お気に入り', recipes_path, class: "btn btn-default"  %>
         <% else %>
           <%= link_to root_path, class: "btn btn-default" do %>
           <span class="glyphicon glyphicon-home" aria-hidden="true">Home</span>
