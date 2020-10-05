@@ -31,6 +31,7 @@
           <%= link_to root_path, class: "btn btn-default" do %>
           <span class="glyphicon glyphicon-home" aria-hidden="true">Home</span>
           <% end %>
+          <%= link_to 'about', home_about_path, class: "btn btn-default" %>
           <%= link_to 'ログイン', new_user_session_path, class: "btn btn-default" %>
           <%= link_to '新規登録', new_user_registration_path, class: "btn btn-default"  %>
           <%= link_to 'レシピ一覧', recipes_path, class: "btn btn-default"  %>

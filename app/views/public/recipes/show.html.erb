@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="title">レシピ詳細</div>
+		<div class="title"><i class="fas fa-utensils"></i> Reciepe</div>
 		<div class="col-lg-4">
 			<%= attachment_image_tag @recipe, :image, style: "width: 192px; height: 108px;", fallback: "noimage.jpg" %>
 		</div>
@@ -31,6 +31,7 @@
 
 			<% if @recipe.user.id == current_user.id %>
 			<%= link_to "編集", edit_recipe_path(@recipe) %>
+			<%= link_to "削除", recipe_path(@recipe), method: :delete, data: {confirm: "本当に消しますか？"} %>
 			<% end %>
 			<%= render 'public/reviews/form', review: @review, recipe: @recipe %>
 		</div>

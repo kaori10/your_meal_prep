@@ -1,10 +1,10 @@
 <div class="container">
 	<div class="row">
-		<div class="title"><%= @user.nickname %>さんの詳細ページ</div>
+		<div class="title"><i class="fas fa-user"></i> User page</div>
 		<div class="col-lg-4">
 			<div class="panel panel-danger">
 				<div class="panel-heading">
-					<h1>登録情報</h1>
+					<h1><%= @user.nickname %>さんのページ</h1>
 				</div>
 				<div class="panel-body" style="text-align: center; font-size: 18px;">
 					<%= attachment_image_tag @user, :profile_image, style: "width: 192px; height: 108px;", fallback: "noimage.jpg" %>
