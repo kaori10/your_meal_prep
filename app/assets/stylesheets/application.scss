@@ -25,10 +25,19 @@
     padding-bottom: 120px;/*←footerの高さ*/
     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
-header{
-    width: 100%;
-    height: 120px;
+
+.navbar {
+    height: 110px;
     background-color: #ffe263;
+}
+
+.navbar-nav {
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+.nav-list-item {
+    color: black;
 }
 
 .title{
