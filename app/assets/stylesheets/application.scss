@@ -17,7 +17,7 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "bulma";
-
+ @import "skippr.css";
 
 .wrapper{
     min-height: 100vh;
@@ -26,19 +26,42 @@
     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
 
+/*←ヘッダー*/
 .navbar {
     height: 110px;
     background-color: #ffe263;
 }
-
 .navbar-nav {
     margin-top: 40px;
     margin-left: 50px;
 }
-
 .nav-list-item {
     color: black;
 }
+/*←ヘッダー*/
+
+
+/*←スライドショー*/
+.image1 {
+  background-image: url(test1.jpg);
+}
+.image2 {
+  background-image: url(test2.jpg);
+}
+.image3 {
+  background-image: url(test3.jpg);
+}
+.image4 {
+  background-image: url(test4.jpg);
+}
+.image5 {
+  background-image: url(test5.jpg);
+}
+#container{
+  height: 500px;
+}
+/*←スライドショー*/
+
 
 .title{
     margin-top: 40px;
