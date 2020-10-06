@@ -43,22 +43,19 @@
 
 /*←スライドショー*/
 .image1 {
-  background-image: url(test1.jpg);
+  background-image: url(dish2.jpg);
 }
 .image2 {
-  background-image: url(test2.jpg);
+  background-image: url(food2.jpg);
 }
 .image3 {
-  background-image: url(test3.jpg);
+  background-image: url(food1.jpg);
 }
-.image4 {
-  background-image: url(test4.jpg);
-}
-.image5 {
-  background-image: url(test5.jpg);
-}
+
 #container{
-  height: 500px;
+  height: 600px;
+  margin-bottom: 60px;
+  background-size:cover;
 }
 /*←スライドショー*/
 
