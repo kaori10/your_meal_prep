@@ -2,6 +2,7 @@ class Public::RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+    @genres = Genre.all
   end
 
   def show
@@ -44,6 +45,12 @@ class Public::RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
     redirect_to recipes_path
+  end
+
+  def genre
+    @genre = Genre.find(params[:id])
+    @recipes = @genre.recipes
+    @genres = Genre.all
   end
 
   private

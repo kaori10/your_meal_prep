@@ -24,8 +24,8 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
       resources :reviews, only: [:index, :create]
     end
+    get 'recipes/genre/:id' => 'recipes#genre', as: 'recipes_genre'
     resources :genres, only: [:index]
-
   end
 
 
