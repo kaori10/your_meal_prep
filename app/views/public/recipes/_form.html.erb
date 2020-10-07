@@ -1,6 +1,6 @@
-
 <div class="txt">
   <%= form_with model: @recipe, local: true do |f| %>
+    <%= render 'layouts/error', resource: recipe %>
     <div class="field">
       <%= f.label :title, "レシピ名"%>
       <%= f.text_field :title, class: "input" %>

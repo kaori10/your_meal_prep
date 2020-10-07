@@ -1,4 +1,5 @@
 class Public::ReviewsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
   	@recipe = Recipe.find(params[:recipe_id])
@@ -12,7 +13,7 @@ class Public::ReviewsController < ApplicationController
   	if @review.save
   		redirect_to recipe_reviews_path(@review.recipe)
   	else
-  		@recipe = Recipe.find(params[:id])
+      @recipe = Recipe.find(params[:recipe_id])
   		render "public/recipes/show"
   	end
   end

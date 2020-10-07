@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
   	@users = User.all
@@ -19,7 +20,11 @@ class Admin::UsersController < ApplicationController
   	else
   		render "edit"
   	end
+  end
 
+  private
+  def user_params
+    params.require(:user).permit(:last_name, :first_name, :first_name_kana, :last_name_kana, :nickname, :email, :postal_code, :address, :telephone_number, :profile, :profile_image )
   end
 
 end

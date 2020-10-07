@@ -9,10 +9,13 @@ class ApplicationController < ActionController::Base
 			:first_name_kana,
 			:last_name_kana,
 			:nickname,
+			:address,
 			:email,
 			:postal_code,
 			:adress,
-			:telephone_number
+			:telephone_number,
+			:profile,
+			:profile_image
 		])
 	end
 

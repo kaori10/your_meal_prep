@@ -1,6 +1,7 @@
 <p class="is size-4 mb -3"></p>
 
 <div class="rating-box mt-3">
+  <%= render 'layouts/error', resource: @review %>
   <%= form_with model: review, url: recipe_reviews_path(recipe), local: true do |f| %>
     <div class="main-rating">
       <div class="ratings mb-3">

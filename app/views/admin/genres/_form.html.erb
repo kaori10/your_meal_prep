@@ -1,4 +1,5 @@
 <%= form_for(genre, url: url) do |f| %>
+	<%= render 'layouts/error', resource: genre %>
 	<%= f.label :name, "ジャンル名:" %>
 	<%= f.text_field :name %>
 	<%= f.radio_button :is_active, true %>

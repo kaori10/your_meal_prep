@@ -1,0 +1,10 @@
+<% if resource.errors.any? %>
+  <div class="alert alert-danger">
+    <h1><%= resource.errors.count %>件エラーが発生しました。以下ご確認お願いいたします。</h1>
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li>・<%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
