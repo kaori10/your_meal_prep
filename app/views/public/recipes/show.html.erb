@@ -3,17 +3,17 @@
 		<div class="title"><i class="fas fa-utensils"></i> Reciepe</div>
 		<div class="col-lg-5">
 			<%= attachment_image_tag @recipe, :image, style: "width: 500px; height: 350px;", fallback: "noimage.jpg" %>
-            <% if current_user.already_favorited?(@recipe) %>
-              <%= link_to recipe_favorites_path(@recipe), method: :delete do %>
-                <i class="fas fa-heart"></i>
-              <% end %>
-              <%= @recipe.favorites.count %>
-            <% else %>
-              <%= link_to recipe_favorites_path(@recipe), method: :post do %>
-                <i class="far fa-heart"></i>
-              <% end %>
-              <%= @recipe.favorites.count %>
-            <% end %>
+			<% if current_user.already_favorited?(@recipe) %>
+			  <%= link_to recipe_favorites_path(@recipe), method: :delete do %>
+			    <i class="fas fa-heart"></i>
+			  <% end %>
+			  <%= @recipe.favorites.count %>
+			<% else %>
+			  <%= link_to recipe_favorites_path(@recipe), method: :post do %>
+			    <i class="far fa-heart"></i>
+			  <% end %>
+			  <%= @recipe.favorites.count %>
+			<% end %>
             <%= @recipe.user.nickname %>
 		</div>
 		<div class="col-lg-7">
