@@ -1,4 +1,3 @@
-<p class="is size-4 mb -3">投稿フォーム</p>
 
 <div class="txt">
   <%= form_with model: @recipe, local: true do |f| %>
@@ -23,7 +22,7 @@
     </div>
 
     <div class="field">
-    <%= f.label :genre, 'カテゴリ' %>
+    <%= f.label :genre, 'カテゴリー' %><br>
     <%= f.collection_check_boxes(:genre_ids, @genres.all, :id, :name) do |genre| %> 
       <%= genre.label do %>
         <%= genre.check_box %>

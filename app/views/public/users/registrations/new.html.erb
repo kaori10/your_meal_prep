@@ -23,11 +23,11 @@
         </div>
         <div class="field">
           <%= f.label :★プロフィール  %><br />
-          <%= f.text_area :profile, autofocus: true, autocomplete: "profile" %>
+          <%= f.text_area :profile, autofocus: true, autocomplete: "profile", class: "hogehoge", size: "70x5" %>
         </div>
         <div class="field">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "70x5" %>
         </div>
         <div class="field">
           <%= f.label :郵便番号 %><br />
@@ -35,7 +35,7 @@
         </div>
         <div class="field">
           <%= f.label :住所 %><br />
-          <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+          <%= f.text_field :address, autofocus: true, autocomplete: "address", size: "70x5" %>
         </div>
         <div class="field">
           <%= f.label :電話番号 %><br />
