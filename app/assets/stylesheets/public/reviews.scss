@@ -2,6 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.name-a {
+	font-size: 20px;
+}
+
+.title-a {
+	font-size: 45px;
+	font-weight: bold;
+}
+
+.title-b {
+	margin-top: 40px;
+	font-size:30px;
+	font-weight:  bold;
+	border-bottom: solid 1px #fa754d;
+}
+
+.body-b {
+	font-size: 20px;
+	margin-left: 30px;
+	margin-top: 10px;
+}
+
 .rating-box .ratings .fa{
   font-size: 30px;
   color:#ffcc00;
