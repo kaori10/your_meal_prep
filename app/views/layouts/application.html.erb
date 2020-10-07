@@ -39,6 +39,7 @@
               <% elsif user_signed_in? %>
                 <li class="nav-list-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out' %></li>
                 <li class="nav-list-item"><%= link_to 'レシピ一覧', recipes_path, class: 'glyphicon glyphicon-cutlery' %></li>
+                <li class="nav-list-item"><%= link_to 'レシピ投稿', new_recipe_path, class: 'glyphicon glyphicon-send' %></li>
                 <li class="nav-list-item"><%= link_to 'お気に入り', recipes_path, class: 'glyphicon glyphicon-heart' %></li>
               <% else %>
                 <li class="nav-list-item"><%= link_to 'ABOUT', home_about_path, class: 'glyphicon glyphicon-home item' %></li>

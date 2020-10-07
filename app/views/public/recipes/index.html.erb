@@ -1,12 +1,12 @@
 <div class="container">
-	<div class="row">
-		<div class="col-lg">
-			<div class="title"><i class="fas fa-utensils"></i> Reciepes</div>
-    		<% @recipes.each do |recipe| %>
+  <div class="row">
+    <div class="col-lg">
+      <div class="title"><i class="fas fa-utensils"></i> Reciepes</div>
+        <% @recipes.each do |recipe| %>
           <div class="box">
             <div class="box-1">
               <%= link_to(recipe_path(recipe)) do %>
-          			<%= attachment_image_tag recipe, :image, style: "width: 192px; height: 108px;" %>
+                <%= attachment_image_tag recipe, :image, style: "width: 192px; height: 108px;" %>
               <% end %>
               <% if current_user.already_favorited?(recipe) %>
                 <%= link_to recipe_favorites_path(recipe), method: :delete do %>
@@ -26,12 +26,12 @@
               <%= link_to(user_path(recipe.user_id)) do %>
               <%= attachment_image_tag recipe.user, :profile_image, style: "width: 50px; height: 30px;" %>
               <% end %>
-        			<%= recipe.user.nickname %>
-        			<%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %>
+              <%= recipe.user.nickname %>
+              <%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %>
             </div>
           </div>
-    		<% end %>
+        <% end %>
 
-		</div>
-	</div>
+    </div>
+  </div>
 </div>
