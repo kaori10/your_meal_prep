@@ -1,0 +1,80 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "bulma";
+ @import "skippr.css";
+
+.wrapper{
+    min-height: 100vh;
+    position: relative;/*←相対位置*/
+    padding-bottom: 120px;/*←footerの高さ*/
+    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+/*←ヘッダー*/
+.navbar {
+    height: 110px;
+    background-color: #ffe263;
+}
+.navbar-nav {
+    margin-top: 40px;
+    margin-left: 50px;
+}
+.nav-list-item {
+    color: black;
+}
+/*←ヘッダー*/
+
+
+/*←スライドショー*/
+.image1 {
+  background-image: url(dish2.jpg);
+}
+.image2 {
+  background-image: url(food2.jpg);
+}
+.image3 {
+  background-image: url(food1.jpg);
+}
+
+#container{
+  height: 600px;
+  margin-bottom: 60px;
+  background-size:cover;
+}
+/*←スライドショー*/
+
+
+.title{
+    margin-top: 40px;
+    width: 40%;
+    height: 40px;
+    font-family: 'Lobster', cursive;
+    background-color: #fa754d;
+}
+
+footer{
+    width: 100%;
+    background-color: #ffe263;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+
+    position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+}

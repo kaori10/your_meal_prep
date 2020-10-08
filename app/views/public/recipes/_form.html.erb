@@ -1,0 +1,36 @@
+<div class="txt">
+  <%= form_with model: @recipe, local: true do |f| %>
+    <%= render 'layouts/error', resource: recipe %>
+    <div class="field">
+      <%= f.label :title, "レシピ名"%>
+      <%= f.text_field :title, class: "input" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :ingredient, "材料" %>
+      <%= f.text_area :ingredient, class: "textarea" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :body, "作り方" %>
+      <%= f.text_area :body, class: "textarea" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :image, "写真" %>
+      <%= f.attachment_field :image, class: "input" %>
+    </div>
+
+    <div class="field">
+    <%= f.label :genre, 'カテゴリー' %><br>
+    <%= f.collection_check_boxes(:genre_ids, @genres.all, :id, :name) do |genre| %> 
+      <%= genre.label do %>
+        <%= genre.check_box %>
+        <%= genre.text %>
+      <% end %>
+    <% end %>
+    </div>
+	<%= f.submit submit, class: "btn btn-primary ml2" %>
+  <% end %>
+
+</div>
