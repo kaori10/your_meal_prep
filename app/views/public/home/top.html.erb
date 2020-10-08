@@ -10,34 +10,46 @@
         </div>
       </div>
     </div>
-    <!-- Three columns of text below the carousel -->
+    <!-- いいね順ランキング-->
     <div class="row">
-      <div class="col-lg-4">
-      <%= link_to image_tag('dish.jpg', style: "height: 120px;"), root_path %>
-        <!-- <h2>Heading</h2> -->
-        <h2>見出し</h2>
-        <p>掌の上で少し落ちついて書生の顔を見たのがいわゆる人間というものの見始であろう。この時妙なものだと思った感じが今でも残っている。第一毛をもって装飾されべきはずの顔がつるつるしてまるで薬缶だ。</p>
-        <!-- <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p> -->
-        <p><a class="btn btn-secondary" href="#" role="button">詳しく見る &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-      <%= link_to image_tag('dish.jpg', style: "height: 120px;"), root_path %>
-        <!-- <h2>Heading</h2> -->
-        <h2>見出し</h2>
-        <p>その後猫にもだいぶ逢ったがこんな片輪には一度も出会わした事がない。のみならず顔の真中があまりに突起している。そうしてその穴の中から時々ぷうぷうと煙を吹く。</p>
-        <!-- <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p> -->
-        <p><a class="btn btn-secondary" href="#" role="button">詳しく見る &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-      <%= link_to image_tag('dish.jpg', style: "height: 120px;"), root_path %>
-        <!-- <h2>Heading</h2> -->
-        <h2>見出し</h2>
-        <p>吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。</p>
-        <!-- <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p> -->
-        <p><a class="btn btn-secondary" href="#" role="button">詳しく見る &raquo;</a></p>
-      </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
+      <section class="section">
+        <div class="columns is-multiline">
+          <% @all_ranks.each.with_index(1) do |recipe, i| %>
+            <div class="column is-4">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <%= link_to recipe_path(recipe) do %>
+                      <%= attachment_image_tag recipe, :image %>
+                    <% end %>
+                  </figure>
+                  <i class="far fa-heart"><%= recipe.favorites.count %></i>
+                  第<%= i %>位
+                  <%= recipe.title %>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image is-48x48">
+                        <%= attachment_image_tag recipe.user, :profile_image, fallback: "noimage.jpg", class: "profile_image" %>
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <div class="name-a"><%=link_to recipe.user.nickname, user_path(recipe.user) %></div>
+                    </div>
+                  </div>
 
+                  <div class="content">
+                    <time><%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </section>
+    </div>
+    <!-- いいね順ランキング終わり-->
 
     <!-- START THE FEATURETTES -->
 
