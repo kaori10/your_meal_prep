@@ -43,13 +43,13 @@
 
 /*←スライドショー*/
 .image1 {
-  background-image: image-url(dish2);
+  background-image: image-url("dish2.jpg");
 }
 .image2 {
-  background-image: image-url(food2);
+  background-image: image-url("food2.jpg");
 }
 .image3 {
-  background-image: image-url(food1);
+  background-image: image-url("food1.jpg");
 }
 
 #container{
