@@ -15,7 +15,22 @@
 <!-- 説明 -->
 <div class="container">
   <div class="row">
-    <p>忙しい社会人のための簡単な作り置き料理をシェアするサイトです</p>
+    <div class="col-lg-4">
+      <div class="heading06"><i class="fas fa-carrot"></i>Your Meal Prep</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="Frame-Dash">
+        <div class="h3">このサイトは忙しい人に向けた作り置き料理の投稿サイトです。</div><br>
+        ・仕事から疲れて帰宅しても、ささっと美味しい物が食べれるように週末に作り置きをしておく<br>
+        ・スマホでも見れるので、通勤中などに見るのも可能
+
+      </div>
+    </div>
   </div>
 </div>
 <!-- 説明 -->
@@ -24,7 +39,11 @@
     <!-- いいね順ランキング-->
 <div class="container">
   <div class="row">
-    <div class="title"><i class="fas fa-utensils"></i> お気に入りランキング</div>
+    <div class="col-lg-4">
+      <div class="heading06"><i class="fas fa-utensils"></i>お気に入りランキング</div>
+    </div>
+  </div>
+  <div class="row">
     <section class="section">
       <div class="columns is-multiline">
         <% @all_ranks.each.with_index(1) do |recipe, i| %>

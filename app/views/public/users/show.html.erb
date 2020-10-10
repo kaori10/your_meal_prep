@@ -1,73 +1,59 @@
 <div class="container">
 	<div class="row">
-		<div class="title"><i class="fas fa-user"></i> User page</div>
 		<div class="col-lg-4">
-			<div class="panel panel-danger">
-				<div class="panel-heading">
-					<h1><%= @user.nickname %>さんのページ</h1>
+		  <div class="heading06"><i class="fas fa-user"></i>User Page</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-5">
+			<div class="panel-body" style="text-align: center; font-size: 18px;">
+				<%= attachment_image_tag @user, :profile_image, style: "width: 200px; height: 210px;", fallback: "noimage.jpg" %>
+			</div>
+			<div class="panel panel-warning">
+				<div class="panel-heading"style="text-align: center; font-size: 20px;">
+					<%= @user.nickname %>さんのページ
 				</div>
 				<div class="panel-body" style="text-align: center; font-size: 18px;">
-					<%= attachment_image_tag @user, :profile_image, style: "width: 192px; height: 108px;", fallback: "noimage.jpg" %>
-					<br>
-					<table>
-						<tr>
-							<td>ニックネーム:</td>
-							<td><%= @user.nickname %></td>
-						</tr>
-						<tr>
-							<td>プロフィール:</td>
-							<td><%= @user.profile %></td>
-						</tr>
-						<tr>
-							<td>投稿数:</td>
-							<td><%= @user.nickname %></td>
-						</tr>
-					</table>
-
-		         　　<% if @user.id == current_user.id %>
-					<table>
-						<tr>
-							<td>名前：</td>
-							<td><%= @user.first_name %><%= @user.last_name %></td>
-						</tr>
-						<tr>
-							<td>カナ</td>
-							<td><%= @user.first_name_kana %><%= @user.last_name_kana %></td>
-						</tr>
-						<tr>
-							<td>郵便番号:</td>
-							<td><%= @user.postal_code %></td>
-						</tr>
-						<tr>
-							<td>住所:</td>
-							<td><%= @user.address%></td>
-						</tr>
-						<tr>
-							<td>メールアドレス:</td>
-							<td><%= @user.email %></td>
-						</tr>
-						<tr>
-							<td>電話番号:</td>
-							<td><%= @user.telephone_number %></td>
-						</tr>
-					</table>
-					<%= link_to '編集', edit_user_path %>
+					<div class="user-a">【 プロフィール 】</div>
+					<%= simple_format @user.profile %>
+					<% if @user.id == current_user.id %>
+					<div class="user-a">
+					<%= link_to '▼ 編集 ▼', edit_user_path %>
+					</div>
+					<div class="user-a">【 名前 】</div>
+					<div class="user-b"><%= @user.first_name_kana %><%= @user.last_name_kana %></div>
+					<%= @user.first_name %><%= @user.last_name %>
+					<div class="user-a">【 郵便番号 】</div>
+					<%= @user.postal_code %>
+					<div class="user-a">【 住所 】</div>
+					<%= @user.address%>
+					<div class="user-a">【 アドレス 】</div>
+					<%= @user.email %>
+					<div class="user-a">【 電話番号 】</div>
+					<%= @user.telephone_number %>
 					<% end %>
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-8">
-			<table class="table">
-				<caption>投稿したレシピ</caption>
+
+		<div class="col-lg-1">
+		</div>
+
+		<div class="col-lg-6">
+			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>header</th>
+						<th><div class="user-c">投稿レシピ：　<%= @user.recipes.count %>件の投稿</div></th>
 					</tr>
 				</thead>
 				<tbody>
 				 <% @user.recipes.each do |recipe| %>
 					<tr>
-						<td><%= recipe.title %></td>
+						<td><%= attachment_image_tag recipe, :image, style: "width: 120px; height: 80px;", fallback: "noimage.jpg" %></td>
+						<td><%= link_to recipe_path(recipe) do %>
+							<%= recipe.title %>
+							<% end %>
+						</td>
 					</tr>
 				<%end%>
 				</tbody>
