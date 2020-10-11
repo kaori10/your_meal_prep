@@ -1,7 +1,11 @@
 <div class="container">
 	<div class="row">
+		<div class="col-lg-4">
+		  <div class="heading06"><i class="fas fa-user"></i>ジャンル登録</div>
+		</div>
+	</div>
+	<div class="row">
 		<div class="col-lg-12">
-			<h1>ジャンル登録</h1>
 			<%= render 'form', genre: @genre, url: admin_genres_path, submit: '登録' %>
 			<h3>ジャンル一覧</h3>
 			<table class="genre_info has_border">

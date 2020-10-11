@@ -24,10 +24,27 @@ class Public::Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  before_action :reject_user, only: [:create]
+
+
   def after_sign_in_path_for(resource)
     recipes_path
   end
   def after_sign_out_path_for(resource)
     root_path
   end
+
+
+
+  def reject_user
+    @user = User.find_by(email: params[:user][:email].downcase)
+    if @user
+      if @user.valid_password?(params[:user][:password]) && !@user.is_active
+        flash[:notice] = "退会済みです。有効会員になる場合は管理者までご連絡ください。"
+        redirect_to new_user_session_path
+      end
+    end
+  end
+
 end

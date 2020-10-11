@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
+  scope :only_active, -> { where(is_active: true) }
+
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :last_name_kana, presence: true
@@ -22,4 +24,6 @@ class User < ApplicationRecord
   def already_favorited?(recipe)
     self.favorites.exists?(recipe_id: recipe.id)
   end
+
+
 end

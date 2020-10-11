@@ -28,6 +28,11 @@ class Public::UsersController < ApplicationController
   end
 
   def unsubscribe
+    @user = User.find(params[:id])
+    @user.update(is_active: false)
+    reset_session
+    flash[:notice] = 'ご利用ありがとうございました。'
+    redirect_to root_path
   end
 
   private
