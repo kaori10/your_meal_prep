@@ -3,11 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.media-conten {
+  text-size: 20px;
+}
+
+.userlink {
+  text-decoration: none;
+  color: black;
+}
 
 .box {
   width : 30%;
 }
 
+.fa-red {
+  color: #fa754d;
+}
+
+.heart-a {
+  float: right;
+}
+
+/*←星レビュー*/
 .star-rating {
   position: relative;
   width: 5em;
@@ -31,3 +48,4 @@
 .average-score-display {
   font-size: 16px;
 }
+/*←星レビュー*/

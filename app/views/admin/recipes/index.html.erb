@@ -1,12 +1,33 @@
 <div class="container">
 	<div class="row">
+		<div class="col-lg-4">
+		  <div class="heading06"><i class="fas fa-user"></i>レシピ一覧</div>
+		</div>
+	</div>
+
+	<div class="row">
 		<div class="col-lg-12">
-			<h1>管理者レシピ一覧</h1>
-			<% @recipes.each do |recipe| %>
-			<%= attachment_image_tag recipe, :image, style: "width: 192px; height: 108px;" %>
-			<%= recipe.user.nickname %>
-			<%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %>
-			<% end %>
+			<table class="table">
+				<thead>
+					<tr>
+						<th class="api-th"></th>
+						<th class="api-th">レシピ名</th>
+						<th class="api-th">投稿者</th>
+						<th class="api-th">更新日</th>
+					</tr>
+				</thead>
+				<% @recipes.each do |recipe| %>
+					<tbody>
+						<tr>
+							<td><%= attachment_image_tag recipe, :image, style: "width: 80px; height: 55px;" %></td>
+							<td><%= recipe.title %></td>
+							<td><%= recipe.user.nickname %></td>
+							<td><%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+							<td><%= link_to "詳細", admin_recipe_path(recipe), class: "btn btn-primary" %></td>
+						</tr>
+					</tbody>
+				<% end %>
+			</table>
 		</div>
 	</div>
 </div>

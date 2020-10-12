@@ -16,24 +16,24 @@
 					</tr>
 				</thead>
 				<% @users.each do |user| %>
-				<tbody>
-					<tr>
-						<td><%= user.id %></td>
-						<td>
-							<%= user.last_name %>
-							<%= user.first_name %>
-						</td>
-						<td><%= user.email %></td>
-						<td>
-							<% if user.is_active? %>
-								<span class="text-active">有効</span>
-							<% else %>
-								<span class="text-invalid">退会済み</span>
-							<% end %>
-						</td>
-						<td><%= link_to "詳細", admin_user_path(user), class: "btn btn-primary" %></td>
-					</tr>
-				</tbody>
+					<tbody>
+						<tr>
+							<td><%= user.id %></td>
+							<td>
+								<%= user.last_name %>
+								<%= user.first_name %>
+							</td>
+							<td><%= user.email %></td>
+							<td>
+								<% if user.is_active? %>
+									<span class="text-active">有効</span>
+								<% else %>
+									<span class="text-invalid">退会済み</span>
+								<% end %>
+							</td>
+							<td><%= link_to "詳細", admin_user_path(user), class: "btn btn-primary" %></td>
+						</tr>
+					</tbody>
 				<% end %>
 			</table>
 		</div>
