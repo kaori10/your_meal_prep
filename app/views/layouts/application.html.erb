@@ -55,7 +55,11 @@
 
 
       <main>
-        <%= flash[:norice] %>
+        <% if flash[:alert] %>
+          <div class="notification is-danger">
+            <p class="alert"><%= alert %></p>
+          </div>
+        <% end %>
         <%= yield %>
       </main>
 

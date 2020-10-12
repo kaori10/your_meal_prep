@@ -7,6 +7,9 @@ class Public::UsersController < ApplicationController
 
   def edit
   	@user = User.find(params[:id])
+    if @user != current_user
+      redirect_to user_path(current_user), alert: "不正なアクセスです。"
+    end
   end
 
   def update
@@ -31,7 +34,7 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(is_active: false)
     reset_session
-    flash[:notice] = 'ご利用ありがとうございました。'
+    flash[:alert] = 'ご利用ありがとうございました。'
     redirect_to root_path
   end
 

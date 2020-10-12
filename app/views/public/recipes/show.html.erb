@@ -1,25 +1,28 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-4">
-      <div class="heading06"><i class="fas fa-carrot"></i>Recipe</div>
+      <div class="heading06"><i class="fas fa-utensils"></i> Recipe</div>
     </div>
   </div>
 
 	<div class="row">
 		<div class="col-lg-5">
 			<%= attachment_image_tag @recipe, :image, style: "width: 500px; height: 350px;", fallback: "noimage.jpg" %>
-			<% if current_user.already_favorited?(@recipe) %>
-			  <%= link_to recipe_favorites_path(@recipe), method: :delete do %>
-			    <i class="fas fa-heart"></i>
-			  <% end %>
-			  <%= @recipe.favorites.count %>
-			<% else %>
-			  <%= link_to recipe_favorites_path(@recipe), method: :post do %>
-			    <i class="far fa-heart"></i>
-			  <% end %>
-			  <%= @recipe.favorites.count %>
-			<% end %>
-            <%= @recipe.user.nickname %>
+			<div class="user-c">投稿者：<%= @recipe.user.nickname %>
+				<span class="heart-a">
+					<% if current_user.already_favorited?(@recipe) %>
+					  <%= link_to recipe_favorites_path(@recipe), method: :delete do %>
+					    <i class="fas fa-heart fa-1x fa-red"></i>
+					  <% end %>
+					  <%= @recipe.favorites.count %>
+					<% else %>
+					  <%= link_to recipe_favorites_path(@recipe), method: :post do %>
+					    <i class="far fa-heart fa-1x fa-red"></i>
+					  <% end %>
+					  <%= @recipe.favorites.count %>
+					<% end %>
+				</span>
+			</div>
 		</div>
 		<div class="col-lg-7">
 			<div class="title-a"><%= @recipe.title %></div>
@@ -42,8 +45,8 @@
 			<div class="title-b">ジャンル</div>
 			<div class="body-b">
 				<% @recipe.genres.each do |genre| %>
-				  <%= genre.name %>
-			<% end %>
+				  <i class="fas fa-check fa-1x fa-gray "></i><%= genre.name %>
+				<% end %>
 			</div>
 		</div>
 	</div>

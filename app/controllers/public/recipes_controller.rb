@@ -14,6 +14,9 @@ class Public::RecipesController < ApplicationController
   def edit
   	@recipe = Recipe.find(params[:id])
     @genres = Genre.all
+    if @recipe.user != current_user
+      redirect_to recipes_path, alert: "不正なアクセスです。"
+    end
   end
 
   def update

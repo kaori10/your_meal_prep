@@ -21,28 +21,6 @@
 }
 /*←スライドショー*/
 
-.sample {
-  width: 150px;
-  height: 132px;
-  overflow: hidden;
-}
-.sample img {
-  opacity: 0.7;
-  width: 150px;
-  transition: all 0.5s;
-}
-.sample img:hover {
-  opacity: 1.0;
-  transform: scale(1.1, 1.1);
-}
-
-.Frame-Dash {
-    margin-bottom: 60px;
-    padding: 1rem;
-    border: 1px dashed #fa754d;
-    border-radius: 5px;
-    line-height: 1.6;
-}
 
 .home-a {
   font-size: 30px;
