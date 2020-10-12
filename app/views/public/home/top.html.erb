@@ -19,16 +19,12 @@
       <div class="heading06"><i class="fas fa-carrot"></i>Your Meal Prep</div>
     </div>
   </div>
-</div>
-
-<div class="container">
   <div class="row">
     <div class="col-lg-12">
+      <div class="sample"><%= image_tag 'sozai9.png', :size =>'350x250' %></div>
       <div class="Frame-Dash">
-        <div class="h3">このサイトは忙しい人に向けた作り置き料理の投稿サイトです。</div><br>
-        ・仕事から疲れて帰宅しても、ささっと美味しい物が食べれるように週末に作り置きをしておく<br>
-        ・スマホでも見れるので、通勤中などに見るのも可能
-
+        <div class="h3">このサイトは忙しい人に向けた「作り置き料理」の投稿サイトです。<br></div>
+        <p>サイト概要は<%= link_to '>>ABOUTページ', home_about_path %>へ</p>
       </div>
     </div>
   </div>
@@ -48,6 +44,7 @@
       <div class="columns is-multiline">
         <% @all_ranks.each.with_index(1) do |recipe, i| %>
           <div class="column is-4">
+            <div class="home-a"><i class="fas fa-crown fa-1x fa-yellow"></i> 第<%= i %>位</div>
             <div class="card">
               <div class="card-image">
                 <figure class="image is-4by3">
@@ -55,10 +52,9 @@
                     <%= attachment_image_tag recipe, :image %>
                   <% end %>
                 </figure>
-                <i class="far fa-heart"><%= recipe.favorites.count %></i>
-                第<%= i %>位
-                <%= recipe.title %>
+                <div class="title-c"><%= recipe.title %></div>
               </div>
+
               <div class="card-content">
                 <div class="media">
                   <div class="media-left">
@@ -67,12 +63,15 @@
                     </figure>
                   </div>
                   <div class="media-content">
-                    <div class="name-a"><%=link_to recipe.user.nickname, user_path(recipe.user) %></div>
+                    <%=link_to recipe.user.nickname, user_path(recipe.user), class: "userlink" %>
                   </div>
                 </div>
-
                 <div class="content">
-                  <time><%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+                  更新日時：<time><%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %></time>
+                  <span class="heart-a">
+                    <i class="far fa-heart fa-2x fa-red"></i>
+                    <%= recipe.favorites.count %>
+                  </span>
                 </div>
               </div>
             </div>

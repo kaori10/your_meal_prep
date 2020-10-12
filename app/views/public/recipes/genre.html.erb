@@ -22,7 +22,7 @@
       <div class="heading06"><i class="fas fa-utensils"></i>Recipes</div>
     </div>
   </div>
-	<div class="row">
+  <div class="row">
     <div class="col-lg-12">
       <section class="section">
         <div class="columns is-multiline">
@@ -35,19 +35,9 @@
                       <%= attachment_image_tag recipe, :image %>
                     <% end %>
                   </figure>
-                  <% if current_user.already_favorited?(recipe) %>
-                    <%= link_to recipe_favorites_path(recipe), method: :delete do %>
-                      <i class="fas fa-heart"></i>
-                    <% end %>
-                    <%= recipe.favorites.count %>
-                  <% else %>
-                    <%= link_to recipe_favorites_path(recipe), method: :post do %>
-                      <i class="far fa-heart"></i>
-                    <% end %>
-                    <%= recipe.favorites.count %>
-                  <% end %>
-                  <%= recipe.title %>
+                  <div class="title-c"><%= recipe.title %></div>
                 </div>
+
                 <div class="card-content">
                   <div class="media">
                     <div class="media-left">
@@ -56,12 +46,24 @@
                       </figure>
                     </div>
                     <div class="media-content">
-                      <div class="name-a"><%=link_to recipe.user.nickname, user_path(recipe.user) %></div>
+                      <%=link_to recipe.user.nickname, user_path(recipe.user), class: "userlink" %>
                     </div>
                   </div>
-
                   <div class="content">
-                    <time><%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+                    更新日時：<time><%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %></time>
+                    <span class="heart-a">
+                      <% if current_user.already_favorited?(recipe) %>
+                        <%= link_to recipe_favorites_path(recipe), method: :delete do %>
+                          <i class="fas fa-heart fa-2x fa-red"></i>
+                        <% end %>
+                        <%= recipe.favorites.count %>
+                      <% else %>
+                        <%= link_to recipe_favorites_path(recipe), method: :post do %>
+                          <i class="far fa-heart fa-2x fa-red"></i>
+                        <% end %>
+                        <%= recipe.favorites.count %>
+                      <% end %>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -69,6 +71,3 @@
           <% end %>
         </div>
       </section>
-    </div>
-	</div>
-</div>

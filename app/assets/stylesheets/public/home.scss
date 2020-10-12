@@ -21,6 +21,20 @@
 }
 /*←スライドショー*/
 
+.sample {
+  width: 150px;
+  height: 132px;
+  overflow: hidden;
+}
+.sample img {
+  opacity: 0.7;
+  width: 150px;
+  transition: all 0.5s;
+}
+.sample img:hover {
+  opacity: 1.0;
+  transform: scale(1.1, 1.1);
+}
 
 .Frame-Dash {
     margin-bottom: 60px;
@@ -28,6 +42,15 @@
     border: 1px dashed #fa754d;
     border-radius: 5px;
     line-height: 1.6;
+}
+
+.home-a {
+  font-size: 30px;
+  color: #878783;
+}
+
+.fa-yellow {
+  color: #f6d55c;
 }
 
 .about-a {
@@ -39,5 +62,32 @@
 .about-b {
   font-size: 30px;
   margin-top:30px;
+}
+
+.about-c {
+  font-size: 40px;
+  margin-top:30px;
+}
+
+.about-d {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0 10px 0;
+  color: #33332e;
+}
+
+.box2 {
+    height: 600px;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #878783;
+    background: #FFF;
+    border: solid 3px #878783;
+    border-radius: 10px;/*角の丸み*/
+}
+.box2 p {
+    margin: 0;
+    padding: 0;
 }
 
