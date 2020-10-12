@@ -2,7 +2,7 @@ class Public::RecipesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.page(params[:page]).reverse_order
     @genres = Genre.all
   end
 
