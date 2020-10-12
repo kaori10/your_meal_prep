@@ -50,7 +50,7 @@ class Public::RecipesController < ApplicationController
 
   def genre
     @genre = Genre.find(params[:id])
-    @recipes = @genre.recipes
+    @recipes = @genre.recipes.page(params[:page]).reverse_order
     @genres = Genre.all
   end
 

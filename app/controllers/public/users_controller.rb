@@ -20,7 +20,7 @@ class Public::UsersController < ApplicationController
 
   def favorite
     @user = current_user
-    @recipes =@user.recipes
+    @recipes = @user.recipes
     favorites = Favorite.where(user_id: current_user.id).pluck(:recipe_id)
     # ログイン中のユーザーのお気に入りのpost_idカラムを取得
     @favorite_list = Recipe.find(favorites)
