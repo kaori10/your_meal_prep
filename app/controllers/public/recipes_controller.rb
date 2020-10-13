@@ -59,13 +59,8 @@ class Public::RecipesController < ApplicationController
 
   def genre
     @genres = Genre.only_active
-    if params[:id]
-      @genre = @genres.find(params[:id])
-      all_recipes = @genre.recipes
-    else
-      all_recipes = Recipe.where_genre_active.includes(:genre)
-    end
-    @recipes = Recipe.page(params[:page]).reverse_order
+      @genre = Genre.find(params[:id])
+    @recipes = @genre.recipes.page(params[:page]).reverse_order
   end
 
   private
