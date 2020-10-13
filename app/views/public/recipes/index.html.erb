@@ -4,82 +4,23 @@
       <ul class="nav nav-tabs nav-justified">
         <li role="presentation" class="active">
           <%= link_to(recipes_path, class: 'links') do %>
-          レシピ一覧
+            レシピ一覧
           <% end %>
         </li>
         <% @genres.each do |genre| %>
           <li role="presentation" >
-              <%= link_to(recipes_genre_path(genre), class: 'links') do %>
+            <%= link_to(recipes_genre_path(genre), class: 'links') do %>
               <%= genre.name %>
-              <% end %>
+            <% end %>
           </li>
         <% end %>
       </ul>
     </div>
   </div>
-
   <div class="row">
     <div class="col-lg-4">
       <div class="heading06"><i class="fas fa-utensils"></i> Recipes</div>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col-lg-12">
-      <section class="section">
-        <div class="columns is-multiline">
-          <% @recipes.each do |recipe| %>
-            <div class="column is-4">
-              <div class="card">
-                <div class="card-image">
-                  <figure class="image is-4by3">
-                    <%= link_to recipe_path(recipe) do %>
-                      <%= attachment_image_tag recipe, :image %>
-                    <% end %>
-                  </figure>
-                  <div class="title-c"><%= recipe.title %></div>
-                </div>
-
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-left">
-                      <figure class="image is-48x48">
-                        <%= attachment_image_tag recipe.user, :profile_image, fallback: "noimage.jpg", class: "profile_image" %>
-                      </figure>
-                    </div>
-                    <div class="media-content">
-                      <%=link_to recipe.user.nickname, user_path(recipe.user), class: "userlink" %>
-                    </div>
-                  </div>
-                  <div class="content">
-                    更新日時：<time><%= recipe.updated_at.strftime("%Y-%m-%d %H:%M") %></time>
-                    <span class="heart-a">
-                      <% if current_user.already_favorited?(recipe) %>
-                        <%= link_to recipe_favorites_path(recipe), method: :delete do %>
-                          <i class="fas fa-heart fa-2x fa-red"></i>
-                        <% end %>
-                        <%= recipe.favorites.count %>
-                      <% else %>
-                        <%= link_to recipe_favorites_path(recipe), method: :post do %>
-                          <i class="far fa-heart fa-2x fa-red"></i>
-                        <% end %>
-                        <%= recipe.favorites.count %>
-                      <% end %>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </section>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="pull-right">
-        <%= paginate @recipes %>
-      </div>
-    </div>
-  </div>
+  <%= render 'public/recipes/index', recipe: @recipe %>
 </div>

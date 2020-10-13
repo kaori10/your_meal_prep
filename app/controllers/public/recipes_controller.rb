@@ -2,8 +2,14 @@ class Public::RecipesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @genres = Genre.only_active
+    if params[:genre_id]
+      @genre = @genres.find(params[:genre_id])
+      all_recipes = @genre.recipes
+    else
+      all_recipes = Recipe.where_genre_active.includes(:genre)
+    end
     @recipes = Recipe.page(params[:page]).reverse_order
-    @genres = Genre.all
   end
 
   def show
@@ -52,9 +58,14 @@ class Public::RecipesController < ApplicationController
   end
 
   def genre
-    @genre = Genre.find(params[:id])
-    @recipes = @genre.recipes.page(params[:page]).reverse_order
-    @genres = Genre.all
+    @genres = Genre.only_active
+    if params[:id]
+      @genre = @genres.find(params[:id])
+      all_recipes = @genre.recipes
+    else
+      all_recipes = Recipe.where_genre_active.includes(:genre)
+    end
+    @recipes = Recipe.page(params[:page]).reverse_order
   end
 
   private

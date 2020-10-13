@@ -16,4 +16,5 @@ class Public::FavoritesController < ApplicationController
   def set_recipe
     @recipe = Recipe.find(params[:recipe_id])
   end
+
 end

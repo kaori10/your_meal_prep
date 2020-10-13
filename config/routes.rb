@@ -38,6 +38,4 @@ Rails.application.routes.draw do
     resources :genres, only: [:index]
   end
 
-
-
 end

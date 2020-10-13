@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/skippr.css">
     <link rel="stylesheet" href="css/style.css">
-
   </head>
 
   <body>
@@ -28,31 +27,31 @@
             </button>
             <a class="navbar-brand"><%= link_to image_tag('logo.png', style: "height: 110px;"), root_path %></a>
           </div>
-          
           <div class="collapse navbar-collapse" id="navbarEexample1">
             <ul class="nav navbar-nav">
               <% if admin_signed_in? %>
-                <li class="nav-list-item"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'glyphicon glyphicon-log-out' %></li>
+                <li class="nav-list-item"><%= link_to 'HOME', root_path, class: 'glyphicon glyphicon-home item' %></li>
                 <li class="nav-list-item"><%= link_to 'レシピ一覧', admin_recipes_path, class: 'glyphicon glyphicon-cutlery' %></li>
                 <li class="nav-list-item"><%= link_to 'ユーザー一覧', admin_users_path, class: 'glyphicon glyphicon-user' %></li>
                 <li class="nav-list-item"><%= link_to 'ジャンル一覧', admin_genres_path, class: 'glyphicon glyphicon-tag' %></li>
+                <li class="nav-list-item"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'glyphicon glyphicon-log-out' %></li>
               <% elsif user_signed_in? %>
-                <li class="nav-list-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out' %></li>
+                <li class="nav-list-item"><%= link_to 'HOME', root_path, class: 'glyphicon glyphicon-home item' %></li>
                 <li class="nav-list-item"><%= link_to 'レシピ一覧', recipes_path, class: 'glyphicon glyphicon-cutlery' %></li>
                 <li class="nav-list-item"><%= link_to 'レシピ投稿', new_recipe_path, class: 'glyphicon glyphicon-send' %></li>
                 <li class="nav-list-item"><%= link_to 'お気に入り', user_favorite_path(current_user), class: 'glyphicon glyphicon-heart' %></li>
                 <li class="nav-list-item"><%= link_to 'マイページ', user_path(current_user), class: 'glyphicon glyphicon-user' %></li>
+                <li class="nav-list-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out' %></li>
               <% else %>
-                <li class="nav-list-item"><%= link_to 'ABOUT', home_about_path, class: 'glyphicon glyphicon-home item' %></li>
+                <li class="nav-list-item"><%= link_to 'HOME', root_path, class: 'glyphicon glyphicon-home item' %></li>
+                <li class="nav-list-item"><%= link_to 'ABOUT', home_about_path, class: 'glyphicon glyphicon-book' %></li>
                 <li class="nav-list-item"><%= link_to 'ログイン', new_user_session_path, class: 'glyphicon glyphicon-log-out' %></li>
                 <li class="nav-list-item"><%= link_to '新規登録', new_user_registration_path, class: 'glyphicon glyphicon glyphicon-new-window' %></li>
-                <li class="nav-list-item"><%= link_to 'レシピ一覧', recipes_path, class: 'glyphicon glyphicon-cutlery' %></li>
               <% end%>
             </ul>
           </div>
         </div>
       </nav>
-
 
       <main>
         <% if flash[:alert] %>
@@ -66,10 +65,10 @@
       <footer>
         <%= image_tag 'irast3.png', style: "height: 40px;" %>
         <%= link_to new_admin_session_path do %>
-        Copyright © Infratop Inc. All Rights Reserved.
+          Copyright © Infratop Inc. All Rights Reserved.
         <% end %>
       </footer>
     </div>
-
   </body>
+
 </html>

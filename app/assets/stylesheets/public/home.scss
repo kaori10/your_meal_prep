@@ -13,7 +13,6 @@
 .image3 {
   background-image: image-url("food1.jpg");
 }
-
 #container{
   height: 800px;
   margin-bottom: 60px;
@@ -21,6 +20,13 @@
 }
 /*←スライドショー*/
 
+.Frame-Dash {
+    margin-bottom: 60px;
+    padding: 1rem;
+    border: 1px dashed #fa754d;
+    border-radius: 5px;
+    line-height: 1.6;
+}
 
 .home-a {
   font-size: 30px;

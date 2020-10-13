@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-4">
-		  <div class="heading06"><i class="fas fa-utensils"></i> Recipe</div>
+			<div class="heading06"><i class="fas fa-utensils"></i> Recipe</div>
 		</div>
 	</div>
 	<div class="row">
@@ -14,19 +14,18 @@
 			<div class="title-a"><%= @recipe.title %></div>
             <div class="content average-score">
                 <div class="star-rating mb-2">
-                  <div class="star-rating-front" style="width: <%= @recipe.review_score_percentage %>%">★★★★★</div>
-                  <div class="star-rating-back">★★★★★</div>
+	                <div class="star-rating-front" style="width: <%= @recipe.review_score_percentage %>%">★★★★★</div>
+	                <div class="star-rating-back">★★★★★</div>
                 </div>
                 <div class="average-score-display ml-3 pt-2">
-                  <%= @recipe.avg_score %>点（<%= @recipe.reviews.count %>件のレビュー）<br />
+	                <%= @recipe.avg_score %>点（<%= @recipe.reviews.count %>件のレビュー）<br />
                 </div>
             </div>
-                <%= link_to "レビューを見る", recipe_reviews_path(@recipe), class: "button light ml-3 mt-3" %>
 			<div class="title-b">ジャンル</div>
 			<div class="body-b">
 				<% @recipe.genres.each do |genre| %>
-				  <%= genre.name %>
-			<% end %>
+					<%= genre.name %>
+				<% end %>
 			</div>
 		</div>
 	</div>

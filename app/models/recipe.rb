@@ -10,6 +10,7 @@ class Recipe < ApplicationRecord
 	validates :ingredient, presence: true
 	validates :body, presence: true
 
+	scope :where_genre_active, -> { joins(:genre).where(genres: { is_active: true }) }
 
 	def avg_score
 		unless self.reviews.empty?
