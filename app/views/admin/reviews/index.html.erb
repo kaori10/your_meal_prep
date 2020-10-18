@@ -7,12 +7,12 @@
 	<div class="row">
 		<div class="col-lg-5">
 			<%= attachment_image_tag @recipe, :image, style: "width: 600px; height: 400px;", fallback: "noimage.jpg" %>
-			<%= link_to "<<BACK", recipe_path(@recipe), class: "button light ml-3 mt-3" %>
+			<%= link_to "<<BACK", admin_recipe_path(@recipe), class: "button light ml-3 mt-3" %>
 		</div>
 		<div class="col-lg-1">
 		</div>
 		<div class="col-lg-6">
-			<%= render 'reviews', reviews: @reviews %>
+			<%= render 'public/reviews/reviews', reviews: @reviews %>
 		</div>
 	</div>
 </div>

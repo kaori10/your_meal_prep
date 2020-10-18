@@ -11,7 +11,9 @@ Rails.application.routes.draw do
         patch "unsubscribe"
       end
     end
-    resources :recipes, only: [:index, :show]
+    resources :recipes, only: [:index, :show] do
+      resources :reviews, only: [:index, :destroy]
+    end
     resources :genres, only: [:index, :create, :edit, :update]
   end
 

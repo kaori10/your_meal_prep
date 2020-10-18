@@ -21,6 +21,7 @@
 	                <%= @recipe.avg_score %>点（<%= @recipe.reviews.count %>件のレビュー）<br />
                 </div>
             </div>
+            <%= link_to "レビューを見る", admin_recipe_reviews_path(@recipe), class: "button light ml-3 mt-3" %>
 			<div class="title-b">ジャンル</div>
 			<div class="body-b">
 				<% @recipe.genres.each do |genre| %>

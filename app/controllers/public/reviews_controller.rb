@@ -10,6 +10,7 @@ class Public::ReviewsController < ApplicationController
   def create
   	@review = Review.new(review_params)
   	@review.user_id = current_user.id
+    @review.point = Language.get_data(review_params[:content]) #APIに受け渡す
   	if @review.save
   		redirect_to recipe_reviews_path(@review.recipe)
   	else

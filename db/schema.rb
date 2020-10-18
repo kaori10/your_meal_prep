@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_10_03_083235) do
+ActiveRecord::Schema.define(version: 2020_10_17_100014) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -31,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_10_03_083235) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.boolean "is_active", default: true, null: false
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_10_03_083235) do
     t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "point", precision: 5, scale: 3
     t.index ["recipe_id"], name: "index_reviews_on_recipe_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
