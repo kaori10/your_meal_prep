@@ -13,10 +13,7 @@
     </div>
 	<thead>
 		<tr>
-			<th>ユーザー</th><th>点数</th><th>内容</th>
-			<% if admin_signed_in? %>
-				<th>感情スコア</th>
-			<% end %>
+			<th>ユーザー</th><th>点数</th><th>内容</th><th>感情スコア</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -25,9 +22,7 @@
 			<td><%= review.user.nickname %></td>
 			<td><%= review.score %></td>
 			<td><%= review.content %></td>
-			<% if admin_signed_in? %>
 			<td><span class="sentiment-score"><%= review.point %></span></td>
-			<% end %>
 		</tr>
 		<% end%>
 	</tbody>
