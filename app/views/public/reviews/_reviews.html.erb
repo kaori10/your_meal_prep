@@ -13,22 +13,27 @@
     </div>
 	<thead>
 		<tr>
-			<th>ユーザー</th><th>点数</th><th>内容</th>
-			<% if admin_signed_in? %>
-				<th>感情スコア</th>
-			<% end %>
+			<th>ユーザー</th><th>点数</th><th>内容</th><th>感情スコア</th>
 		</tr>
 	</thead>
 	<tbody>
 		<% reviews.each do |review| %>
-		<tr>
-			<td><%= review.user.nickname %></td>
-			<td><%= review.score %></td>
-			<td><%= review.content %></td>
-			<% if admin_signed_in? %>
-			<td><span class="sentiment-score"><%= review.point %></span></td>
-			<% end %>
-		</tr>
+			<tr>
+				<td><%= review.user.nickname %></td>
+				<td><%= review.score %></td>
+				<td><%= review.content %></td>
+				<% if admin_signed_in? %>
+					<td><span class="sentiment-score"><%= review.point %></span></td>
+				<% else %>
+					<% if review.point >= 0.5 %>
+						<td><i class="far fa-smile-beam fa-2x fa-red"></i></td>
+					<% elsif review.point >= 0 %>
+						<td><i class="fas fa-meh fa-2x"></i></td>
+					<% else %>
+						<td><i class="far fa-dizzy fa-2x fa-bule"></i></td>
+					<% end %>
+				<% end %>
+			</tr>
 		<% end%>
 	</tbody>
 </table>

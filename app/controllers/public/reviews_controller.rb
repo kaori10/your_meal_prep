@@ -4,7 +4,6 @@ class Public::ReviewsController < ApplicationController
   def index
   	@recipe = Recipe.find(params[:recipe_id])
   	@reviews = @recipe.reviews
-
   end
 
   def create
